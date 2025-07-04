@@ -8,7 +8,7 @@ Recursively counts non-empty lines that contain at least 1 non-whitespace charac
 
 I have no plans of supporting source-comments (exclude comments from counts), as that requires language-awareness. I want this to be useful enough, while being "simple" and lang-agnostic.
 
-If you really want lang-support, I recommend [`cloc`](https://github.com/AlDanial/cloc). I made this program because `cloc` is too complex and slow for my needs
+If you really want lang-support, I recommend [Tokei](https://github.com/XAMPPRocky/tokei). One of the reasons why I wrote this program was because [`cloc`](https://github.com/AlDanial/cloc) is too complex and slow. See also: [`uwc`](https://github.com/dead10ck/uwc).
 
 ## Usage
 
