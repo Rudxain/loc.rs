@@ -64,11 +64,25 @@ pub fn loc_counter(s: &str) -> usize {
 mod tests {
 	use super::*;
 
+	#[must_use]
+	fn loc_counter_i(s: &str) -> usize {
+		//s.split('\n') // delimiter
+		s.lines() // terminator
+			//.filter(|line| line.chars().any(|c| !c.is_whitespace()))
+			.filter(|line| !line.chars().all(char::is_whitespace))
+			.count()
+	}
+
 	#[test]
 	fn lnc() {
-		assert_eq!(loc_counter("a\nb"), 1);
-		assert_eq!(loc_counter("a\nb\n"), 2);
-		assert_eq!(loc_counter("a\nb\n\n\n"), 2);
-		assert_eq!(loc_counter("\n  \n \na\nb\n \n  \n"), 2);
+		for (s, c) in [
+			("a\nb", 1),
+			("a\nb\n", 2),
+			("a\nb\n\n\n", 2),
+			("\n  \n \na\nb\n \n  \n", 2),
+		] {
+			assert_eq!(loc_counter(s), c);
+			assert_eq!(loc_counter_i(s), c);
+		}
 	}
 }
