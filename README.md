@@ -8,7 +8,7 @@ It uses the [Unicode definition of "whitespace" (according to Rust-std-lib)](htt
 
 I have no plans of supporting source-comments (exclude comments from counts), as that requires language-awareness. I want this to be useful enough, while being "simple" and lang-agnostic.
 
-If you really want lang-support, I recommend [Tokei](https://github.com/XAMPPRocky/tokei). One of the reasons why I wrote this program was because [`cloc`](https://github.com/AlDanial/cloc) is too complex and slow. See also: [`uwc`](https://github.com/dead10ck/uwc).
+If you really want lang-support, I recommend [Tokei](https://github.com/XAMPPRocky/tokei). One of the reasons why I wrote this program was because [`cloc`](https://github.com/AlDanial/cloc) is too complex and slow. See also: [`uwc`](https://github.com/dead10ck/uwc) and [`sloc`](https://dwheeler.com/sloccount).
 
 ## Usage
 
