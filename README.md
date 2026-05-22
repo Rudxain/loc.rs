@@ -38,6 +38,7 @@ Unlike most CLIs, this program doesn't recognize any options or flags (yet), so 
 Non-UTF8 args are supported, to allow arbitrary file-names, and for lower startup overhead. However, **non-UTF8 files are excluded** from counts, as the concept of "non-blank line" doesn't exist in raw-binary (according to Unicode, not POSIX). Sadly, this also excludes UTF-{16,32}.
 
 > Side-note: I was **blown away** by how blazing-fast this program is, **even in debug mode!**
-> At least, when compared to [the equivalent shell-script](loc.sh).
+> At least, when compared to [the equivalent shell-script](loc.sh) when scanning a directory with UTF8-only files.
+> When the dir contains big binary files, the script wins thanks to buffering!
 >
 > No wonder [`rg`](https://github.com/BurntSushi/ripgrep) is so fast! 🚀

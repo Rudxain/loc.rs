@@ -6,7 +6,14 @@ IFS='
 
 impl() {
 	# GNU grep, not POSIX
-	grep -rIv '^[[:space:]]*$' -- "$1" | wc -l
+	grep -rIhc '[^[:space:]]' -- "$1" | awk '{s += $1} END {print s+0}'
+	# ASK: faster than `awk`?
+	# `{ tr '\n' '+'; printf 0; } | bc`.
+	# `awk` is binary fixed-precision floating-point;
+	# `bc` is decimal arbitrary-precision fixed-point;
+	# `bc` impl might do small-int optimization, no guarantee;
+	# `bc` pipe+exec overhead is constant,
+	# so parsing+adding is dominant
 }
 
 if [ $# -gt 0 ]; then
