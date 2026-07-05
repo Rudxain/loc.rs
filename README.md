@@ -42,3 +42,8 @@ Non-UTF8 args are supported, to allow arbitrary file-names, and for lower startu
 > When the dir contains big binary files, the script wins thanks to buffering!
 >
 > No wonder [`rg`](https://github.com/BurntSushi/ripgrep) is so fast! 🚀
+
+# Options I'm considering to add
+- Count pseudo-lines in non-UTF8 by simply dividing the file-size by some arbitrary number, like 64; or even an option to mindlessly count `'\n'` like `wc -l` does.
+- Include whitespace-only lines, i.e. count all non-empty lines.
+- Include "malformed" final lines, i.e. lines terminated by [EOF](https://en.wikipedia.org/wiki/End-of-file) instead of EOL. This seems like a minor technical detail, but it can have a big effect on final counts, if there are several small files with malformed lines
